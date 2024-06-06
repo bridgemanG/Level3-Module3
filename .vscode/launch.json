@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "_00_RegularExpressionsDemo",
+            "request": "launch",
+            "mainClass": "_03_Intro_To_Regular_Expressions._00_RegularExpressionsDemo"
+        },
+        {
+            "type": "java",
+            "name": "_00_StringMethodsDemo",
+            "request": "launch",
+            "mainClass": "_00_Intro_To_String_Methods._00_StringMethodsDemo"
+        },
+        {
+            "type": "java",
+            "name": "_02_PasswordCheckerRunner",
+            "request": "launch",
+            "mainClass": "_03_Intro_To_Regular_Expressions._02_PasswordCheckerRunner"
+        },
+        {
+            "type": "java",
+            "name": "_02_StringBuilderDemo",
+            "request": "launch",
+            "mainClass": "_01_StringBuilder._02_StringBuilderDemo"
+        }
+    ]
+}
