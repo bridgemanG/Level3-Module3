@@ -67,23 +67,64 @@ public class _01_StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-		//get first character
+		// get first character
 		char[] st1 = s1.toCharArray();
 		char[] st2 = s2.toCharArray();
 		char[] st3 = s3.toCharArray();
-		
-		int index;
+		String val1 = "";
+		String val2 = "";
+		String val3 = "";
+		boolean ready = false;
 		for (int i = 0; i < st1.length; i++) {
-		if (st1[i] == ' ') {
-			index = i;
+			if (st1[i] != ' ' && st1[i] > 0) {
+				ready = true;
+				System.out.println(i);
+			}
+			if (ready) {
+				if (st1[i] == ' ' && st1[i + 1] > 0 && st1[i - 1] > 0) {
+					val1 = String.valueOf(st1[i + 1]);
+					break;
+				}
+			}
 		}
-		//find index then separate to last name of each then 
-		//get the char 
-		//if the char is equal
-		
+
+		ready = false;
+		for (int i = 0; i < st2.length; i++) {
+			if (st2[i] != ' ' && st2[i] > 0) {
+				ready = true;
+				System.out.println(i);
+			}
+			if (ready) {
+				if (st2[i] == ' ' && st2[i + 1] > 0 && st2[i - 1] > 0) {
+					val2 = String.valueOf(st2[i + 1]);
+					break;
+				}
+			}
 		}
 		
-		return null;
+		ready = false;
+		for (int i = 0; i < st3.length; i++) {
+			if (st3[i] != ' ' && st3[i] > 0) {
+				ready = true;
+				System.out.println(i);
+			}
+			if (ready) {
+				if (st3[i] == ' ' && st3[i + 1] > 0 && st3[i - 1] > 0) {
+					val3 = String.valueOf(st3[i + 1]);
+					break;
+				}
+			}
+		}
+		
+		if (val2.compareTo(val1) >= 0 && val3.compareTo(val1) >= 0) {
+			return s1;
+		} else if (val3.compareTo(val2) > 0) {
+			return s2;
+		} else
+			return s3;
+
+		//REMOVE THE SPACES AT THE BEGGINING AND THE END
+	
 	}
 
 	// Return the sum of all numerical digits in the String
@@ -104,14 +145,14 @@ public class _01_StringMethods {
 	// Call Utilities.decrypt at the bottom of this file to decrypt the
 	// cyphertext (encrypted text)
 	public static String decrypt(String s, char key) {
-		
+
 		return null;
 	}
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-		
+
 		return 0;
 	}
 
@@ -119,7 +160,7 @@ public class _01_StringMethods {
 	// occurrence of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		
+
 		return 0;
 	}
 
@@ -127,7 +168,7 @@ public class _01_StringMethods {
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
-		
+
 		return true;
 	}
 }

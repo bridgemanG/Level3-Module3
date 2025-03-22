@@ -74,7 +74,7 @@ public class _00_StringMethodsDemo {
         String substring = "to";
         int numOccurances = 0;
         index = str.indexOf("to");
-        while( index != -1 ) {
+        while(index != -1) {
             numOccurances++;
             index = str.indexOf(substring, index + substring.length());
         }
