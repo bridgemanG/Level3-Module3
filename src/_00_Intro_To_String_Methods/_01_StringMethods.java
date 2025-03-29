@@ -1,6 +1,7 @@
 package _00_Intro_To_String_Methods;
 
 import java.util.Base64;
+import java.util.Iterator;
 
 /*
  * Visit the JavaDocs for the String class to view everything you can do with a String.
@@ -72,73 +73,101 @@ public class _01_StringMethods {
 		char[] st2 = s2.toCharArray();
 		char[] st3 = s3.toCharArray();
 		String val1 = "";
+		String lastname1 = "";
 		String val2 = "";
+		String lastname2 = "";
 		String val3 = "";
+		String lastname3 = "";
 		boolean ready = false;
-		for (int i = 0; i < st1.length; i++) {
-			if (st1[i] != ' ' && st1[i] > 0) {
+		// val 1
+		for (int j = 0; j < st1.length; j++) {
+			if (ready && Character.isUpperCase(st1[j])) {
+				val1 += " ";
+				val1 += st1[j];
+				lastname1 += "" + st1[j];
+				ready = false;
+			} else if (st1[j] != ' ') {
+				val1 += st1[j];
 				ready = true;
-				System.out.println(i);
-			}
-			if (ready) {
-				if (st1[i] == ' ' && st1[i + 1] > 0 && st1[i - 1] > 0) {
-					val1 = String.valueOf(st1[i + 1]);
-					break;
-				}
 			}
 		}
+		// val 2
+		for (int j = 0; j < st2.length; j++) {
+			if (ready && Character.isUpperCase(st2[j])) {
+				val2 += " ";
+				val2 += st2[j];
+				lastname2 += "" + st2[j];
+				ready = false;
+			} else if (st2[j] != ' ') {
+				val2 += st2[j];
+				ready = true;
+			}
+		}
+		// val 3
+		for (int j = 0; j < st3.length; j++) {
+			if (ready && Character.isUpperCase(st3[j])) {
+				val3 += " ";
+				val3 += st3[j];
+				lastname3 += "" + st3[j];
+				ready = false;
+			} else if (st3[j] != ' ') {
+				val3 += st3[j];
+				ready = true;
+			}
+		}
+		System.out.println(val1);
+		System.out.println(val2);
+		System.out.println(val3);
 
-		ready = false;
-		for (int i = 0; i < st2.length; i++) {
-			if (st2[i] != ' ' && st2[i] > 0) {
-				ready = true;
-				System.out.println(i);
-			}
-			if (ready) {
-				if (st2[i] == ' ' && st2[i + 1] > 0 && st2[i - 1] > 0) {
-					val2 = String.valueOf(st2[i + 1]);
-					break;
-				}
-			}
-		}
-		
-		ready = false;
-		for (int i = 0; i < st3.length; i++) {
-			if (st3[i] != ' ' && st3[i] > 0) {
-				ready = true;
-				System.out.println(i);
-			}
-			if (ready) {
-				if (st3[i] == ' ' && st3[i + 1] > 0 && st3[i - 1] > 0) {
-					val3 = String.valueOf(st3[i + 1]);
-					break;
-				}
-			}
-		}
-		
-		if (val2.compareTo(val1) >= 0 && val3.compareTo(val1) >= 0) {
-			return s1;
-		} else if (val3.compareTo(val2) > 0) {
-			return s2;
+		if (lastname2.compareTo(lastname1) >= 0 && lastname3.compareTo(lastname1) >= 0) {
+			return val1;
+		} else if (lastname3.compareTo(lastname2) > 0) {
+			return val2;
 		} else
-			return s3;
-
-		//REMOVE THE SPACES AT THE BEGGINING AND THE END
-	
+			return val3;
 	}
 
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		return 0;
+		char[] nums = s.toCharArray();
+		int integer = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (Character.isDigit(nums[i])) {
+				String num = "" + nums[i];
+				integer += Integer.parseInt(num);
+			}
+		}
+		return integer;
 	}
 
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		return 0;
+		char[] asChar = substring.toCharArray();
+		char[] compareS = s.toCharArray();
+		boolean count = true;
+		int counter = 0;
+		for (int i = 0; i < compareS.length; i++) {
+
+			if (compareS[i] == asChar[0]) {
+				count = true;
+				for (int j = 0; i + j < compareS.length && j < asChar.length; j++) {
+					if (compareS[i + j] != asChar[j]) {
+						count = false;
+					}
+				}
+				if (count) {
+					counter++;
+					count = false;
+				}
+			}
+		}
+
+		return counter;
 	}
 
 	// Call Utilities.encrypt at the bottom of this file to encrypt String s
 	public static String encrypt(String s, char key) {
+		
 		return null;
 	}
 
