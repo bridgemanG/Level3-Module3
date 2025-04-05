@@ -202,7 +202,7 @@ char[] str = s.toCharArray();
 char[] substr = substring.toCharArray();
 
 //from last char of substring
-// to first char of substring
+// to first char of substringa
 		return 0;
 	}
 
