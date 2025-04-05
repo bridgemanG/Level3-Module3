@@ -167,21 +167,30 @@ public class _01_StringMethods {
 
 	// Call Utilities.encrypt at the bottom of this file to encrypt String s
 	public static String encrypt(String s, char key) {
-		
-		return null;
+		byte[] b = s.getBytes();
+		byte by = (byte) key;
+
+		return Utilities.encrypt(b, by);
 	}
 
 	// Call Utilities.decrypt at the bottom of this file to decrypt the
 	// cyphertext (encrypted text)
 	public static String decrypt(String s, char key) {
+		byte by = (byte) key;
 
-		return null;
+		return Utilities.decrypt(s, by);
 	}
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-
+char[] str = s.toCharArray();
+char[] substr = substring.toCharArray();
+for (int i = 0; i < str.length; i++) {
+	if (str[i] == ' ') {
+		
+	}
+}
 		return 0;
 	}
 
@@ -189,7 +198,11 @@ public class _01_StringMethods {
 	// occurrence of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
+char[] str = s.toCharArray();
+char[] substr = substring.toCharArray();
 
+//from last char of substring
+// to first char of substring
 		return 0;
 	}
 
