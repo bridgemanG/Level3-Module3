@@ -115,9 +115,6 @@ public class _01_StringMethods {
 				ready = true;
 			}
 		}
-		System.out.println(val1);
-		System.out.println(val2);
-		System.out.println(val3);
 
 		if (lastname2.compareTo(lastname1) >= 0 && lastname3.compareTo(lastname1) >= 0) {
 			return val1;
@@ -184,13 +181,36 @@ public class _01_StringMethods {
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-char[] str = s.toCharArray();
-char[] substr = substring.toCharArray();
-for (int i = 0; i < str.length; i++) {
-	if (str[i] == ' ') {
-		
-	}
-}
+//		char[] str = s.toCharArray();
+//		char[] substr = substring.toCharArray();
+//		int words = 0;
+//		boolean wordDone = false;
+//		for (int i = str.length-1; i >= 0; i--) {
+//			if(!wordDone && Character.isLetter(str[i])) {
+//			if (str[i-(substr.length-1)] == substr[0]) {
+//				for (int j = 0; j < substr.length && j + i + 1 < str.length; j++) {
+//					if (str[i-(substr.length-1) + j] != substr[j]) {
+//						System.out.println("Substring does not match " + str[i-(substr.length-1) + j] + " " + substr[j]);
+//						i = i + j;
+//						break;
+//					} else if (j == substr.length - 1) {
+//						words++;
+//					}
+//				}
+//			wordDone = true;
+//			}
+//			else {
+//				wordDone = true;
+//			}
+//			}
+//			else {
+//				if (str[i] == ' ') {
+//					wordDone = false;
+//				}
+//			}
+//			
+//		}
+//		return words;
 		return 0;
 	}
 
@@ -198,12 +218,48 @@ for (int i = 0; i < str.length; i++) {
 	// occurrence of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-char[] str = s.toCharArray();
-char[] substr = substring.toCharArray();
+		char[] str = s.toCharArray();
+		char[] substr = substring.toCharArray();
+		boolean Count = false;
+		int firstIndex = 0;
+		int lastIndex = 0;
 
-//from last char of substring
-// to first char of substringa
-		return 0;
+		for (int i = 0; i < str.length; i++) {
+			if (str[i] == substr[0]) {
+				if (!Count) {
+
+					for (int j = 0; j < substr.length && j + i < str.length; j++) {
+						if (str[i + j] != substr[j]) {
+							i += j;
+							break;
+						}
+						if (j == substr.length - 1) {
+							Count = true;
+							firstIndex = i + j;
+							i += substr.length;
+						}
+					}
+				}
+			}
+			if (Count) {
+				break;
+			}
+		}
+//last index
+		for (int i = str.length - 1; i >= 0 && Count == true; i--) {
+			if (str[i] == substr[0]) {
+				for (int j = 0; j < substr.length && i + j < str.length; j++) {
+					if (str[i + j] != substr[j]) {
+						break;
+					}
+					if (j == substr.length - 1) {
+						Count = false;
+						lastIndex = i;
+					}
+				}
+			}
+		}
+		return (lastIndex) - (firstIndex + 1);
 	}
 
 	// Return true if String s is a palindrome
